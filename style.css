@@ -1,25 +1,61 @@
 /* ============================================================
-   Soft Landing Coaching — recreation styles
-   Navy headings · vivid red accents · warm sand sections
-   · diagonal services split · peach newsletter band.
+   Soft Landing Coaching — styles
+   Navy headings · vivid red accents · warm sand sections.
+   All colours are defined once in :root and referenced with
+   var(--name). To recolour the site, change them here only.
    ============================================================ */
 
-/* ---------- Design tokens ---------- */
 :root {
-    --navy:   #1A2440;   /* logo, headings, nav text */
-    --red:    #E11B2E;   /* buttons, active nav, accents */
-    --red-dk: #C21222;   /* button hover */
-    --sand:   #E8DFD0;   /* warm beige section background */
-    --peach:  #F9CAA8;   /* newsletter band */
-    --field:  #F4EEE4;   /* form field background */
-    --body:   #45474D;   /* body text */
-    --white:  #FFFFFF;
+    /* ---- Brand palette ---- */
+    --navy:      #1A2440;   /* logo, headings, nav text */
+    --navy-dk:   #11192E;   /* navy button hover */
+    --red:       #f6482a;   /* buttons, active nav, accents */
+    --red-dk:    #dd4126;   /* red button hover, tagline */
+    --sand:      #EDEDE9;   /* it was warm beige section background */
+    --peach:     #F9CAA8;   /* newsletter band */
+    --field:     #F4EEE4;   /* form field background */
+    --white:     #FFFFFF;
 
+    /* ---- Text ---- */
+    --body:            #45474D;   /* body text */
+    --muted:           #6F6555;   /* placeholder / italic captions */
+    --newsletter-text: #6B4A36;   /* text on the peach band */
+
+    /* ---- Accents / status ---- */
+    --green:    #3B7A3B;   /* service line icons */
+    --green-ok: #1F7A3D;   /* success message */
+
+    /* ---- Neutrals / lines ---- */
+    --line:          #ECE5D8;   /* blog card border */
+    --line-soft:     #EEEEEE;   /* mobile nav dividers */
+    --placeholder-1: #D9CDB8;   /* photo placeholder gradient */
+    --placeholder-2: #C9B89C;
+
+    /* ---- Translucent navy (borders) ---- */
+    --navy-15: rgba(26, 36, 64, 0.15);
+    --navy-18: rgba(26, 36, 64, 0.18);
+
+    /* ---- Translucent white (glass surfaces) ---- */
+    --white-16: rgba(255, 255, 255, 0.16);
+    --white-35: rgba(255, 255, 255, 0.35);
+    --white-50: rgba(255, 255, 255, 0.50);
+    --white-75: rgba(255, 255, 255, 0.75);
+    --white-78: rgba(255, 255, 255, 0.78);
+
+    /* ---- Translucent black (overlays) ---- */
+    --black-18: rgba(0, 0, 0, 0.18);
+    --black-30: rgba(0, 0, 0, 0.30);
+    --black-35: rgba(0, 0, 0, 0.35);
+
+    /* ---- Shadows ---- */
+    --shadow:        0 14px 40px rgba(26, 36, 64, 0.10);
+    --shadow-header: 0 2px 18px rgba(26, 36, 64, 0.08);
+    --shadow-red:    0 10px 24px rgba(225, 27, 46, 0.28);
+
+    /* ---- Layout ---- */
     --container: 1180px;
     --gutter: clamp(20px, 5vw, 56px);
-
     --font: "Poppins", system-ui, sans-serif;
-    --shadow: 0 14px 40px rgba(26, 36, 64, 0.10);
 }
 
 /* ---------- Reset ---------- */
@@ -37,9 +73,7 @@ body {
     font-size: 16px;
     overflow-x: hidden;
 }
-main {
-    flex: 1;
-}
+main { flex: 1; }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 em { font-style: italic; }
@@ -52,16 +86,21 @@ h1, h2, h3 {
     letter-spacing: -0.01em;
 }
 
+/* ---------- Logo ---------- */
 .brand {
     display: inline-flex;
     flex-direction: column;
     line-height: 1.1;
+    font-weight: 700;
+    font-size: clamp(1.3rem, 3vw, 1.85rem);
+    color: var(--navy);
+    letter-spacing: -0.02em;
 }
 .brand-tag {
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.03em;
-    color: #C21222;
+    color: var(--red-dk);
     margin-top: 3px;
 }
 
@@ -87,7 +126,7 @@ h1, h2, h3 {
     position: absolute;
     left: -999px;
     background: var(--navy);
-    color: #fff;
+    color: var(--white);
     padding: 10px 18px;
     z-index: 999;
 }
@@ -109,15 +148,15 @@ h1, h2, h3 {
 }
 .btn-red {
     background: var(--red);
-    color: #fff;
-    box-shadow: 0 10px 24px rgba(225, 27, 46, 0.28);
+    color: var(--white);
+    box-shadow: var(--shadow-red);
 }
 .btn-red:hover { background: var(--red-dk); transform: translateY(-2px); }
 .btn-navy {
     background: var(--navy);
-    color: #fff;
+    color: var(--white);
 }
-.btn-navy:hover { background: #11192e; transform: translateY(-2px); }
+.btn-navy:hover { background: var(--navy-dk); transform: translateY(-2px); }
 
 /* ============================================================
    HEADER
@@ -129,19 +168,13 @@ h1, h2, h3 {
     background: var(--white);
     transition: box-shadow .3s ease;
 }
-.site-header.scrolled { box-shadow: 0 2px 18px rgba(26, 36, 64, 0.08); }
+.site-header.scrolled { box-shadow: var(--shadow-header); }
 
 .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 92px;
-}
-.brand {
-    font-weight: 700;
-    font-size: clamp(1.3rem, 3vw, 1.85rem);
-    color: var(--navy);
-    letter-spacing: -0.02em;
 }
 .primary-nav ul {
     list-style: none;
@@ -191,7 +224,7 @@ h1, h2, h3 {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.35));
+    background: linear-gradient(180deg, var(--black-18), var(--black-35));
 }
 .hero-content {
     position: relative;
@@ -200,18 +233,18 @@ h1, h2, h3 {
     max-width: 900px;
 }
 .hero h1 {
-    color: #fff;
+    color: var(--white);
     font-weight: 600;
     font-size: clamp(2rem, 5.4vw, 3.4rem);
     line-height: 1.25;
     margin-bottom: 2.2rem;
-    text-shadow: 0 2px 18px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 18px var(--black-30);
 }
 
 /* ---------- photo placeholders ---------- */
 .photo {
     position: relative;
-    background: linear-gradient(135deg, #d9cdb8, #c9b89c);
+    background: linear-gradient(135deg, var(--placeholder-1), var(--placeholder-2));
     display: grid;
     place-items: center;
     overflow: hidden;
@@ -219,13 +252,13 @@ h1, h2, h3 {
 }
 .photo span {
     font-style: italic;
-    color: #6f6555;
+    color: var(--muted);
     font-size: 0.95rem;
 }
 .photo::after {
     content: "";
     position: absolute; inset: 0;
-    background: repeating-linear-gradient(45deg, rgba(255,255,255,.16) 0 2px, transparent 2px 16px);
+    background: repeating-linear-gradient(45deg, var(--white-16) 0 2px, transparent 2px 16px);
     opacity: .5;
 }
 .photo-square { aspect-ratio: 1 / 1; }
@@ -251,6 +284,15 @@ h1, h2, h3 {
     margin-bottom: 2.2rem;
 }
 .about em { color: var(--navy); font-style: italic; }
+
+.about-intro {
+    background: var(--sand);
+    padding: clamp(3rem, 7vw, 5.5rem) 0;
+    font-size: 1.08rem;
+}
+.about-intro .container {
+    max-width: 1200px;
+}
 
 /* ============================================================
    SERVICES (diagonal beige -> white)
@@ -290,7 +332,7 @@ h1, h2, h3 {
 .service-icon {
     width: 64px; height: 64px;
     margin: 0 auto 1.6rem;
-    color: #3b7a3b;            /* green line icons, as on the live site */
+    color: var(--red);
 }
 .service-icon svg { width: 100%; height: 100%; }
 .service-card h3 {
@@ -340,7 +382,7 @@ h1, h2, h3 {
 .newsletter > .container > .newsletter-inner > p,
 .newsletter p:not(.form-msg) {
     font-size: 1.1rem;
-    color: #6b4a36;
+    color: var(--newsletter-text);
     margin-bottom: 2rem;
 }
 .subscribe {
@@ -356,13 +398,13 @@ h1, h2, h3 {
     min-width: 0;
     padding: 0.95rem 1.4rem;
     border-radius: 100px;
-    border: 1.5px solid rgba(26, 36, 64, 0.18);
-    background: rgba(255,255,255,0.75);
+    border: 1.5px solid var(--navy-18);
+    background: var(--white-75);
     font-family: var(--font);
     font-size: 1rem;
     color: var(--navy);
 }
-.subscribe input:focus { outline: none; border-color: var(--navy); background: #fff; }
+.subscribe input:focus { outline: none; border-color: var(--navy); background: var(--white); }
 
 /* ============================================================
    CONTACT
@@ -392,14 +434,14 @@ h1, h2, h3 {
     display: grid; place-items: center;
     border-radius: 10px;
     color: var(--navy);
-    background: rgba(255,255,255,0.5);
+    background: var(--white-50);
     transition: color .25s ease, transform .25s ease, background .25s ease;
 }
-.socials a:hover { color: var(--red); transform: translateY(-3px); background: #fff; }
+.socials a:hover { color: var(--red); transform: translateY(-3px); background: var(--white); }
 .socials svg { width: 22px; height: 22px; }
 
 .contact-form-wrap {
-    background: rgba(255,255,255,0.35);
+    background: var(--white-35);
     border-radius: 14px;
     padding: clamp(1.6rem, 4vw, 2.8rem);
 }
@@ -416,7 +458,7 @@ h1, h2, h3 {
 .field textarea {
     width: 100%;
     padding: 0.85rem 1rem;
-    border: 1px solid rgba(26, 36, 64, 0.15);
+    border: 1px solid var(--navy-15);
     border-radius: 4px;
     background: var(--field);
     font-family: var(--font);
@@ -434,7 +476,7 @@ h1, h2, h3 {
     font-weight: 600;
     font-size: 0.95rem;
 }
-.form-msg.ok  { color: #1f7a3d; }
+.form-msg.ok  { color: var(--green-ok); }
 .form-msg.err { color: var(--red); }
 
 /* ============================================================
@@ -442,7 +484,7 @@ h1, h2, h3 {
    ============================================================ */
 .site-footer {
     background: var(--navy);
-    color: rgba(255,255,255,0.78);
+    color: var(--white-78);
     text-align: center;
     padding: 2rem 0;
     font-size: 0.92rem;
@@ -476,7 +518,7 @@ h1, h2, h3 {
     }
     .primary-nav.open { transform: translateY(0); }
     .primary-nav ul { flex-direction: column; gap: 0; }
-    .primary-nav li { border-bottom: 1px solid #eee; }
+    .primary-nav li { border-bottom: 1px solid var(--line-soft); }
     .primary-nav li:last-child { border-bottom: none; }
     .primary-nav a { display: block; padding: 0.95rem 0; }
 
@@ -524,20 +566,20 @@ h1, h2, h3 {
 
 /* Generic call-to-action band */
 .page-cta {
-    background: var(--navy);
-    color: #fff;
+    background: var(--white);
+    color: var(--navy);
     text-align: center;
     padding: clamp(3rem, 7vw, 5rem) 0;
 }
 .page-cta h2 {
-    color: #fff;
+    color: var(--navy);
     font-size: clamp(1.8rem, 4.5vw, 2.8rem);
     margin-bottom: 1.2rem;
 }
 .page-cta p {
     max-width: 52ch;
     margin: 0 auto 2rem;
-    color: rgba(255, 255, 255, 0.82);
+    color: var(--navy);
 }
 
 /* Blog listing */
@@ -558,8 +600,8 @@ h1, h2, h3 {
 .blog-card {
     display: flex;
     flex-direction: column;
-    background: #fff;
-    border: 1px solid #ece5d8;
+    background: var(--white);
+    border: 1px solid var(--line);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -568,10 +610,10 @@ h1, h2, h3 {
 .blog-card:hover { transform: translateY(-6px); }
 .blog-thumb {
     aspect-ratio: 16 / 10;
-    background: linear-gradient(135deg, #d9cdb8, #c9b89c);
+    background: linear-gradient(135deg, var(--placeholder-1), var(--placeholder-2));
     display: grid;
     place-items: center;
-    color: #6f6555;
+    color: var(--muted);
     font-style: italic;
     font-size: 0.9rem;
 }
