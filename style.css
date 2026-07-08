@@ -278,6 +278,7 @@ h1, h2, h3 {
     align-items: center;
 }
 .about h2 { font-size: clamp(2rem, 4.5vw, 3.1rem); }
+
 .about p {
     font-size: 1.08rem;
     max-width: 56ch;
@@ -288,11 +289,21 @@ h1, h2, h3 {
 .about-intro {
     background: var(--sand);
     padding: clamp(3rem, 7vw, 5.5rem) 0;
-    font-size: 1.08rem;
 }
+
 .about-intro .container {
-    max-width: 1200px;
+    max-width: 760px;
+} 
+
+.about-intro p {
+    font-size: 1.1rem;
+    margin-bottom: 1.3rem;
 }
+
+.about-intro p:last-child {
+    margin-bottom: 0;
+}
+      
 
 /* ============================================================
    SERVICES (diagonal beige -> white)
