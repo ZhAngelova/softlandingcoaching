@@ -9,7 +9,7 @@
     /* ---- Brand palette ---- */
     --grey:      #43423f;   /* logo, headings, nav text */
     --grey-dk:   #3c3b39;   /* darker grey button hover */
-    --red:       #f6482a;   /* buttons, active nav, accents */
+    --red:       #EE4B2B;   /* buttons, active nav, accents */
     --red-dk:    #dd4126;   /* red button hover, tagline */
     --sand:      #e8e3da;   /* very light warm beige/greige section background */
     --peach:     #F9CAA8;   /* newsletter band */
@@ -103,6 +103,13 @@ h1, h2, h3 {
     letter-spacing: 0.01em;
     color: var(--red-dk);
     margin-top: 2px;
+}
+
+.signature {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    margin-top: 1.5rem;
 }
 
 .container {
