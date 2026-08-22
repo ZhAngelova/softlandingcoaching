@@ -97,11 +97,12 @@ h1, h2, h3 {
     letter-spacing: -0.02em;
 }
 .brand-tag {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.03em;
+    font-family: "Dancing Script", cursive;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     color: var(--red-dk);
-    margin-top: 3px;
+    margin-top: 2px;
 }
 
 .container {
