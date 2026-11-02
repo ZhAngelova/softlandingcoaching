@@ -339,7 +339,15 @@ h1, h2, h3 {
     margin: 0 auto clamp(3rem, 6vw, 5rem);
 }
 .section-head h2 { font-size: clamp(2rem, 4.6vw, 3.1rem); }
-.section-head p { font-size: 1.06rem; }
+
+.section-head p {
+    max-width: 640px;
+    margin-inline: auto;
+}
+
+.section-head p + p {
+    margin-top: 1rem;
+}
 
 .service-grid {
     display: grid;
@@ -586,6 +594,7 @@ h1, h2, h3 {
 }
 
 /* Interior page banner (replaces the big hero on sub-pages) */
+
 .page-banner {
     background: var(--sand);
     text-align: center;
@@ -613,7 +622,7 @@ h1, h2, h3 {
     margin: 0 auto 2rem;
     color: var(--grey);
 }
-
+  
 /* Blog listing */
 .blog-section {
     background: var(--white);
